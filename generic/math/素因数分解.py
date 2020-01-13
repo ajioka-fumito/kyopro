@@ -10,3 +10,6 @@ def prime_decomposition(n):
     if n > 1:
         table.append(n)
     return table
+
+if __name__ == __name__:
+    print(prime_decomposition(25))

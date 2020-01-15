@@ -1,1 +1,1 @@
-print(bin(14))
+print(0**1)

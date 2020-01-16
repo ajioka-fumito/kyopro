@@ -1,40 +1,31 @@
 from collections import defaultdict
 def main():
-    dict_A = defaultdict(int)
-    dict_B = defaultdict(int)
     N = int(input())
-
-    now = input()
-    dict_A[now] += 1
-    flg = 1
-
+    set = defaultdict(int)
     
-
-    for _ in range(N-1):
-        next_ = input()
-
-        if flg==1:
-            if dict_B[next_]==0 and now[-1]==now[0]:
-                flg *= -1
-                dict_B[next_]+=1
-                now = next_
-            else:
+    now = input()
+    set[now] = 1
+    last = now[-1]
+    for i in range(N-1):
+        now = input()
+        if i%2==0:
+            if set[now]!=0 or now[0]!=last:
                 print("WIN")
                 exit()
-        else:
-            if dict_A[next_]==0 and now[-1]==now[0]:
-                flg *= -1
-                dict_A[next_]+=1
-                now = next_
             else:
+                set[now] = 1
+                last = now[-1]
+                
+        else:
+            if set[now]!=0 or now[0]!=last:
                 print("LOSE")
                 exit()
+            else:
+                set[now] = 1
+                last = now[-1]
 
     print("DRAW")
+        
 
-
-
-
-
-if __name__ == "__main__":
-    main()    
+if __name__ == '__main__':
+    main()

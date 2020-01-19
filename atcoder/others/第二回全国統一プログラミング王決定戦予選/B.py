@@ -3,6 +3,7 @@ def main():
     N = int(input())
     D = [int(x) for x in input().split()]
     dic = defaultdict(int)
+    mod = 998244353
     for i in D:
         dic[i] += 1
 
@@ -12,6 +13,8 @@ def main():
     ans = 1
     for i in range(1,max(dic.keys())+1):
         ans *= dic[i-1]**dic[i]
+        ans %= mod
+    
     print(ans)    
 if __name__ == '__main__':
     main()

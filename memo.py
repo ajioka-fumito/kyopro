@@ -1,15 +1,15 @@
-import fractions
-def main():
-    mod = 10**9 + 7
-    N = int(input())
-    A = [int(x) for x in input().split()]
-    sub = A[0]
-    for i in A:
-        sub = sub * i // fractions.gcd(sub, i)
-    ans = 0
-    for i in range(N):
-        ans += sub//A[i]
-        ans %= mod
-    print(ans%mod)
-if __name__ == '__main__':
-    main()
+n = 4
+a = [1,2,4,7]
+k = 13
+
+def dfs(i,add):
+    if i==n:
+        return add==k
+    if dfs(i+1,add):
+        return True
+    if dfs(i+1,add+a[i]):
+        return True
+    return False
+
+print(dfs(0,0))
+    

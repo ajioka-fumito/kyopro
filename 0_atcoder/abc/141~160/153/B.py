@@ -1,0 +1,9 @@
+def main():
+	H,N = map(int,input().split())
+	A = [int(a) for a in input().split()]
+	if H<=sum(A):
+		print("Yes")
+	else:
+		print("No")
+if __name__ == '__main__':
+	main()
